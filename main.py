@@ -2,7 +2,7 @@ import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = "8055604998:AAG_3_9jCb-OgnTbrFPI5eJ3Ny59mu309hM"
 GROUP_ID = -1003573621688
 
 music_triggers = ["mass"]
