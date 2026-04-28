@@ -1,26 +1,27 @@
 import os
 from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 GROUP_ID = -1003573621688
 
-async def mass_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user = update.effective_user.first_name
+music_triggers = ["mass"]
 
-    await update.message.reply_text(
-        f"🔥 Mass BGM requested by {user}\n\nChecking voice chat..."
-    )
+async def music_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.message and update.message.text:
+        text = update.message.text.lower().strip()
+        user = update.effective_user.first_name
 
-async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        "DJ Kumaru Music Bot is live 🎧"
-    )
+        if text in music_triggers:
+            await update.message.reply_text(
+                f"🔥 Mass BGM requested by {user}\n\nChecking voice chat..."
+            )
 
 app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-app.add_handler(CommandHandler("start", start_command))
-app.add_handler(CommandHandler("mass", mass_command))
+app.add_handler(
+    MessageHandler(filters.TEXT & ~filters.COMMAND, music_reply)
+)
 
 print("🔥 DJ Kumaru Music Bot Running...")
 app.run_polling()
