@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-GROUP_ID = int(os.getenv("GROUP_ID"))
+GROUP_ID = -1003573621688
 
 async def mass_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user.first_name
