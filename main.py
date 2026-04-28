@@ -12,7 +12,7 @@ async def music_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = update.message.text.lower().strip()
         user = update.effective_user.first_name
 
-        if text in music_triggers:
+        if text == "mass":
             await update.message.reply_text(
                 f"🔥 Mass BGM requested by {user}\n\nChecking voice chat..."
             )
