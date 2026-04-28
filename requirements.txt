@@ -1,7 +1,5 @@
 python-telegram-bot==20.7
 pyrogram
 tgcrypto
-pytgcalls
 yt-dlp
-ffmpeg-python
 pytz
