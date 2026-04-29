@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 
-BOT_TOKEN = "8055604998:AAG_3_9jCb-OgnTbrFPI5eJ3Ny59mu309hM"
+BOT_TOKEN = "8675811092:AAHNHQZeXIDBCeUsBCaOJvYsZNnmlgjT_48"
 GROUP_ID = -1003573621688
 
 async def music_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
